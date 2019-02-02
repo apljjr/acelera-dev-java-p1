@@ -1,6 +1,6 @@
 package br.com.codenation.aceleradev.rec.loja.exception;
 
-public class EstoqueInsuficienteException extends Exception {
+public class EstoqueInsuficienteException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 

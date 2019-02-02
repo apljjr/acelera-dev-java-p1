@@ -31,14 +31,18 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
 
     @Override
     public Usuario getById(int id) {
+        return null;
+    }
+
+    public Usuario getByCPF(String cpf) {
         ResultSet rs = null;
         PreparedStatement stmt = null;
 
         Usuario result = new Usuario();
 
-        try{
+        try {
             stmt = connection.prepareStatement("select * from usuario where cpf=?");
-            stmt.setInt(0,id);
+            stmt.setString(1, cpf);
             rs = stmt.executeQuery();
             Usuario usuario;
             while (rs.next()) {
@@ -50,7 +54,7 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if(rs != null){
+            if (rs != null) {
                 try {
                     rs.close();
                     stmt.close();
@@ -67,4 +71,5 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
     public List<Usuario> getAll() {
         return null;
     }
+
 }
