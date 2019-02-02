@@ -1,6 +1,6 @@
 package br.com.codenation.aceleradev.rec.loja.exception;
 
-public class LojaException extends Exception {
+public class LojaException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 

@@ -3,6 +3,7 @@ package br.com.codenation.aceleradev.rec.loja.dao;
 import br.com.codenation.aceleradev.rec.loja.connection.ConnectionFactory;
 import br.com.codenation.aceleradev.rec.loja.entidades.Software;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class SoftwareDAO implements GenericDAO<Software> {
 
-    private Connection connection = new ConnectionFactory().getConnection();
+    private Connection connection = ConnectionFactory.getInstance();
 
     @Override
     public void salvar(Software software) {
@@ -25,7 +26,7 @@ public class SoftwareDAO implements GenericDAO<Software> {
 
         stmt.setLong(1, software.getId());
         stmt.setString(2, software.getDescricao());
-        stmt.setDouble(3, software.getPreco());
+        stmt.setDouble(3, software.getPreco().doubleValue());
         stmt.setInt(4, software.getQtdEstoque());
         stmt.setInt(5, software.getCategoria());
         stmt.setString(6, software.getVersao());
@@ -48,7 +49,7 @@ public class SoftwareDAO implements GenericDAO<Software> {
       try (PreparedStatement stmt = connection.prepareStatement(query)) {
 
         stmt.setString(1, software.getDescricao());
-        stmt.setDouble(2, software.getPreco());
+        stmt.setDouble(2, software.getPreco().doubleValue());
         stmt.setInt(3, software.getQtdEstoque());
         stmt.setInt(4, software.getCategoria());
         stmt.setString(5, software.getVersao());
@@ -131,7 +132,7 @@ public class SoftwareDAO implements GenericDAO<Software> {
         software.setId(rs.getLong("id"));
         software.setCategoria(rs.getInt("categoria"));
         software.setDescricao(rs.getString("descricao"));
-        software.setPreco(rs.getDouble("preco"));
+        software.setPreco(new BigDecimal(rs.getDouble("preco")));
         software.setQtdEstoque(rs.getInt("qtd_estoque"));
         software.setVersao(rs.getString("versao"));
         software.setRequisitoSistema(rs.getString("requisitos"));

@@ -1,6 +1,6 @@
 package br.com.codenation.aceleradev.rec.loja.entidades;
 
-public class Filme {
+public class Filme  extends Produto {
 
   private String diretor;
   private int anoLacamento;

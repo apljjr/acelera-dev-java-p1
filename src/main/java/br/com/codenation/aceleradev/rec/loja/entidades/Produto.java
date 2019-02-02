@@ -1,10 +1,12 @@
 package br.com.codenation.aceleradev.rec.loja.entidades;
 
+import java.math.BigDecimal;
+
 public abstract class Produto {
 
   private long id;
   private String descricao;
-  private double preco;
+  private BigDecimal preco;
   private int qtdEstoque;
   private int categoria;
 
@@ -29,11 +31,11 @@ public abstract class Produto {
     this.descricao = descricao;
   }
 
-  public double getPreco() {
+  public BigDecimal getPreco() {
     return preco;
   }
 
-  public void setPreco(double preco) {
+  public void setPreco(BigDecimal preco) {
     this.preco = preco;
   }
 

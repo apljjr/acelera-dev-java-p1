@@ -1,10 +1,8 @@
 package br.com.codenation.aceleradev.rec.loja.dao;
 
-import br.com.codenation.aceleradev.rec.loja.entidades.Produto;
-
 import java.util.List;
 
-public interface GenericDAO<T extends Produto> {
+public interface GenericDAO<T> {
     public void salvar(T t);
     public void update(T bean);
     public void delete(int id);
