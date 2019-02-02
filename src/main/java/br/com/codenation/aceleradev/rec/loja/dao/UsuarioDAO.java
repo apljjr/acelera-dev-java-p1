@@ -2,6 +2,8 @@ package br.com.codenation.aceleradev.rec.loja.dao;
 
 import br.com.codenation.aceleradev.rec.loja.connection.ConnectionFactory;
 import br.com.codenation.aceleradev.rec.loja.entidades.Usuario;
+import br.com.codenation.aceleradev.rec.loja.exception.UsuarioInvalidoException;
+import br.com.codenation.aceleradev.rec.loja.util.SQL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,26 +32,27 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
     }
 
     @Override
-    public Usuario getById(int id) {
+    public Usuario getById(int id) throws UsuarioInvalidoException {
         return null;
     }
 
     public Usuario getByCPF(String cpf) {
         ResultSet rs = null;
         PreparedStatement stmt = null;
-
-        Usuario result = new Usuario();
+        Usuario usuario = null;
 
         try {
-            stmt = connection.prepareStatement("select * from usuario where cpf=?");
+            stmt = connection.prepareStatement(SQL.SELECT_USUARIO_CPF);
             stmt.setString(1, cpf);
             rs = stmt.executeQuery();
-            Usuario usuario;
-            while (rs.next()) {
+
+            if (rs.next()) {
                 usuario = new Usuario();
                 usuario.setNome(rs.getString("nome"));
                 usuario.setCpf(rs.getString("cpf"));
                 usuario.setId(rs.getLong("id"));
+            }else{
+                throw new UsuarioInvalidoException();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -64,7 +67,7 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
             }
         }
 
-        return result;
+        return usuario;
     }
 
     @Override
