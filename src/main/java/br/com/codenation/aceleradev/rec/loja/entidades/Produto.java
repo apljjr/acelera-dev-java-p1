@@ -6,8 +6,45 @@ public class Produto {
   private String descricao;
   private double preco;
   private int qtdEstoque;
-  private String categoria;
-  private String versao;
-  private String requisitoSistema;
+  private int categoria;
 
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public String getDescricao() {
+    return descricao;
+  }
+
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
+
+  public double getPreco() {
+    return preco;
+  }
+
+  public void setPreco(double preco) {
+    this.preco = preco;
+  }
+
+  public int getQtdEstoque() {
+    return qtdEstoque;
+  }
+
+  public void setQtdEstoque(int qtdEstoque) {
+    this.qtdEstoque = qtdEstoque;
+  }
+
+  public int getCategoria() {
+    return categoria;
+  }
+
+  public void setCategoria(int categoria) {
+    this.categoria = categoria;
+  }
 }
