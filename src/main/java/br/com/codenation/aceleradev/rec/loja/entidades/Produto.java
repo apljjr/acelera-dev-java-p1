@@ -1,12 +1,17 @@
 package br.com.codenation.aceleradev.rec.loja.entidades;
 
-public class Produto {
+public abstract class Produto {
 
   private long id;
   private String descricao;
   private double preco;
   private int qtdEstoque;
   private int categoria;
+
+  @Override
+  public String toString() {
+    return String.format("%d - %s", id, descricao);
+  }
 
   public long getId() {
     return id;
