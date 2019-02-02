@@ -9,7 +9,7 @@ public class Start {
         System.out.print("Digite CPF para logar no sistema:");
         while(sc.hasNext()){
             i++;
-            
+
             //// TODO: 02/02/2019
 
             System.out.println("Comando: "+sc.next());
