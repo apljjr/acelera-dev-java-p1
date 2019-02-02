@@ -8,9 +8,9 @@ public class ConnectionFactory {
 
     private static ConnectionFactory ourInstance = new ConnectionFactory();
 
-    private String url = "jdbc:mysql://db4free.net:3306/adminproj";
-    private String user = "adminproj";
-    private String pass = "FSFU06hq";
+    private static final String url = "jdbc:mysql://db4free.net:3306/adminproj";
+    private static final String user = "adminproj";
+    private static final String pass = "FSFU06hq";
 
 
     private ConnectionFactory() {
