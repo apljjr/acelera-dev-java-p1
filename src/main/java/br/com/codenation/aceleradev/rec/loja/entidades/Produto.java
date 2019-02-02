@@ -1,4 +1,4 @@
-package main.java.br.com.codenation.aceleradev.rec.loja.entidades;
+package br.com.codenation.aceleradev.rec.loja.entidades;
 
 public class Produto {
 
