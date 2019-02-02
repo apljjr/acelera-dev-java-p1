@@ -18,5 +18,6 @@ public class Start {
             System.out.println("Próximo comando:");
         }
         sc.close();
+        //UsuarioTest.getUsuarioByCpf();
     }
 }

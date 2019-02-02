@@ -3,6 +3,7 @@ package br.com.codenation.aceleradev.rec.loja.dao;
 import br.com.codenation.aceleradev.rec.loja.connection.ConnectionFactory;
 import br.com.codenation.aceleradev.rec.loja.entidades.Produto;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,7 +55,7 @@ public class ProdutoDAO implements GenericDAO<Produto> {
                 produto.setId(rs.getLong("id"));
                 produto.setCategoria(rs.getInt("categoria"));
                 produto.setDescricao(rs.getString("descricao"));
-                produto.setPreco(rs.getDouble("preco"));
+                produto.setPreco(BigDecimal.valueOf(rs.getDouble("preco")));
                 produto.setQtdEstoque(rs.getInt("qtd_estoque"));
 
                 produtos.add(produto);
