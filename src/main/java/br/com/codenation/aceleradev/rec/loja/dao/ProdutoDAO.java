@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ProdutoDAO implements GenericDAO<Produto> {
 
-    private Connection connection = new ConnectionFactory().getConnection();
+    private Connection connection = ConnectionFactory.getInstance().getConnection();
 
     @Override
     public void salvar(Produto bean) {
@@ -43,7 +43,7 @@ public class ProdutoDAO implements GenericDAO<Produto> {
 
         List<Produto> produtos = new ArrayList<>();
 
-        try{
+        try {
             stmt = connection.prepareStatement("select * from produto");
             rs = stmt.executeQuery();
             Produto produto;
@@ -63,7 +63,7 @@ public class ProdutoDAO implements GenericDAO<Produto> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if(rs != null){
+            if (rs != null) {
                 try {
                     rs.close();
                     stmt.close();
