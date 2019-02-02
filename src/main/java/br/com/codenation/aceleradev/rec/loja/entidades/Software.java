@@ -5,6 +5,11 @@ public class Software extends Produto {
   private String versao;
   private String requisitoSistema;
 
+  @Override
+  public String toString() {
+    return super.toString();
+  }
+
   public String getVersao() {
     return versao;
   }

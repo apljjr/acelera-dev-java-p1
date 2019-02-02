@@ -1,7 +1,5 @@
 package br.com.codenation.aceleradev.rec.loja.entidades;
 
-import br.com.codenation.aceleradev.rec.loja.dao.ProdutoDAO;
-
 public class Filme  extends Produto {
 
   private String diretor;

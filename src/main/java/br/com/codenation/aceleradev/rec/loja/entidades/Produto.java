@@ -2,13 +2,18 @@ package br.com.codenation.aceleradev.rec.loja.entidades;
 
 import java.math.BigDecimal;
 
-public class Produto {
+public abstract class Produto {
 
   private long id;
   private String descricao;
   private BigDecimal preco;
   private int qtdEstoque;
   private int categoria;
+
+  @Override
+  public String toString() {
+    return String.format("%d - %s", id, descricao);
+  }
 
   public long getId() {
     return id;

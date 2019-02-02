@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UsuarioDAO implements GenericDAO<Usuario> {
 
-    private Connection connection = ConnectionFactory.getInstance().getConnection();
+    private Connection connection = ConnectionFactory.getInstance();
 
     @Override
     public void salvar(Usuario bean) {
@@ -22,7 +22,7 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
     }
 
     @Override
-    public void upate(Usuario bean) {
+    public void update(Usuario bean) {
 
     }
 

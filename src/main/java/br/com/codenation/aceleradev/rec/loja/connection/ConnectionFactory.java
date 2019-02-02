@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    private static ConnectionFactory ourInstance = new ConnectionFactory();
+    private static Connection ourInstance;
 
     private static final String url = "jdbc:mysql://db4free.net:3306/adminproj";
     private static final String user = "adminproj";
@@ -17,16 +17,20 @@ public class ConnectionFactory {
     }
 
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         try {
-            return DriverManager.getConnection(
-                    url, user, pass);
+            return DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static ConnectionFactory getInstance() {
+    public static Connection getInstance() {
+
+        if (ourInstance == null) {
+            ourInstance = getConnection();
+        }
+
         return ourInstance;
     }
 
