@@ -1,4 +1,6 @@
 package br.com.codenation.aceleradev.rec.loja;
+import br.com.codenation.aceleradev.rec.loja.test.UsuarioTest;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -16,6 +18,5 @@ public class Start {
             System.out.println("Próximo comando:");
         }
         sc.close();
-
     }
 }

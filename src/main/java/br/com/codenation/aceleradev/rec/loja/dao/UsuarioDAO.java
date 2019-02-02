@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UsuarioDAO implements GenericDAO<Usuario> {
 
-    private Connection connection = new ConnectionFactory().getConnection();
+    private Connection connection = ConnectionFactory.getInstance().getConnection();
 
     @Override
     public void salvar(Usuario bean) {
